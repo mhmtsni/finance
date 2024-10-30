@@ -1,0 +1,15 @@
+# Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env  # If you use an environment file for secrets
+
+# Flask session data
+flask_session/
+
+# Local database files
+*.db
+
+# Add any other temporary or local directories/files
+instance/

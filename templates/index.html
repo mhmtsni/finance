@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <div>
+        <table style="width: 50%; margin: 0 auto; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">Stocks</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Number of Shares</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Current Price</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Total Value</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">
+                        {% for stock in stocks %}
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.stock_name }}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.amount }}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.current_price }}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.total_value }}</td>
+
+                        </tr>
+                        {% endfor %}
+                    </td>
+                   
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 20px;">
+            <div>
+            
+                <strong>Cash Balance: {{ cash }}</strong>
+            </div>
+        <div>
+
+            <strong>Grand Total: {{ total }}</strong>
+        </div>
+        <div>
+            <form action="/" method="post">
+                <div>
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="cash" placeholder="Add More Cash" type="number">
+
+                </div>                   
+                <button class="btn btn-primary" type="submit">Add</button>
+
+            </form>
+        </div>
+        </div>
+    </div>
+{% endblock %}

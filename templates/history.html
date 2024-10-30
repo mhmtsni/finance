@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div>
+        <table style="width: 50%; margin: 0 auto; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">Symbol</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Number of Shares</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Action</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Price</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Date and Time</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">
+                        {% for stock in stocks %}
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.symbol }}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.amount }}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.action }}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.price }}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">{{ stock.timestamp }}</td>
+
+                        </tr>
+                        {% endfor %}
+                    </td>
+                   
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+{% endblock %}
